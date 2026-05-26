@@ -10,6 +10,11 @@ app.use('/', express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+app.get("/", function(req, res) {
+    // 루트 경로 요청 시 /list로 리다이렉트
+    res.redirect("/list");
+});
+
 app.get("/hello", function(req, res) {
     console.log("/ 요청 들어옴.")
     res.end("<h1>Hello world</h1>");
