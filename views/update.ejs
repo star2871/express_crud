@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자동차 정보 수정</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        form div { margin-bottom: 10px; }
+        label { display: inline-block; width: 80px; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>자동차 정보 수정</h1>
+    <form action="/update" method="post">
+        <input type="hidden" name="_id" value="<%= car._id %>">
+        <div>
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" value="<%= car.name %>" required>
+        </div>
+        <div>
+            <label for="price">가격:</label>
+            <input type="number" id="price" name="price" value="<%= car.price %>" required>
+        </div>
+        <div>
+            <label for="company">제조사:</label>
+            <input type="text" id="company" name="company" value="<%= car.company %>" required>
+        </div>
+        <div>
+            <label for="year">연식:</label>
+            <input type="number" id="year" name="year" value="<%= car.year %>" required>
+        </div>
+        <button type="submit">수정하기</button>
+    </form>
+    <br>
+    <a href="/list">목록으로 돌아가기</a>
+</body>
+</html>

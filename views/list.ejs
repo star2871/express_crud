@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자동차 목록</h1>
+    <p>name: <%= name %></p>
+    <button onclick="location.href='/input'">새 자동차 추가</button>
+    <div>
+        <form action="/list" method="get" style="display: inline-block;">
+            <select name="searchType">
+                <option value="name" <%= searchType === 'name' ? 'selected' : '' %>>이름</option>
+                <option value="company" <%= searchType === 'company' ? 'selected' : '' %>>제조사</option>
+                <option value="year" <%= searchType === 'year' ? 'selected' : '' %>>연식</option>
+            </select>
+            <input type="text" name="keyword" placeholder="검색어 입력" value="<%= keyword %>">
+            <button type="submit">검색</button>
+        </form>
+        <a href="/list">전체 목록 보기</a>
+    </div>
+    <hr>
+    <ul>
+        <% carList.forEach(function(item, i) { %>
+            <li><a href="/detail/<%=item._id%>"><%= item.name %></a> | <%= item.price %> | <%= item.company %> | <%= item.year %> <a href="/update/<%=item._id%>">수정</a> <a href="/delete?_id=<%=item._id%>">삭제</a> </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

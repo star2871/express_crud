@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title><%= car.name %> 상세 정보</title>
+</head>
+<body>
+    <h1>자동차 상세 정보</h1>
+    <p><strong>ID:</strong> <%= car._id %></p>
+    <p><strong>이름:</strong> <%= car.name %></p>
+    <p><strong>가격:</strong> <%= car.price %></p>
+    <p><strong>제조사:</strong> <%= car.company %></p>
+    <p><strong>연식:</strong> <%= car.year %></p>
+    <hr>
+    <a href="/list">목록으로 돌아가기</a>
+    <a href="/update/<%= car._id %>">수정하기</a>
+</body>
+</html>
